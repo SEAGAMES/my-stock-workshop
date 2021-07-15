@@ -1,14 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import Report from '../views/Report.vue'
+import Stock from '../views/Stock.vue'
+import StockCreate from '../views/StockCreate.vue'
+import StockEdit from '../views/StockEdit.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/report',
+    name: 'report',
+    component: Report
+  },
+  {
+    path: '/stock',
+    name: 'stock',
+    component: Stock
+  },
+  {
+    path: '/stock-create',
+    name: 'stockcr-eate',
+    component: StockCreate
+  },
+  {
+    path: '/stock-edit/:id ',
+    name: 'stock-edit',
+    component: StockEdit
   },
   {
     path: '/about',
@@ -17,6 +47,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: "/",
+    redirect: "/login"
+  },
+  {
+    path: "*",
+    redirect: "/login" // page not found
   }
 ]
 
