@@ -16,6 +16,7 @@
                             label="Username"
                             id="username"
                             v-model="account.username"
+                            :rules="usernameRules"
                         />
                         <!-- Password -->
                         <v-text-field
@@ -27,6 +28,7 @@
                             :type="isShowPassword ? 'text' : 'password'"
                             counter 
                             v-model="account.password"
+                            :rules="passwordRules"
                         />
 
                         <!-- Test Debug v-model ของ user , pass -->
@@ -55,7 +57,9 @@ export default {
             account:{
                 username:"",
                 password:""
-            }
+            },
+            usernameRules:[v1=>!!v1 || "Username is required",] ,
+            passwordRules:[v1=>!!v1 || "Password is required", v2=>!!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v2) || "Minimum eight characters, at least one letter and one number:"]
         }
     },
     methods() {

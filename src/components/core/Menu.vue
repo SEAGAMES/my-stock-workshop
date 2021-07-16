@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer app permanent>
-    <router-link to="/" exact>
-      <v-img src="@/assets/LOGOAE_WEB.png" alt="" width="100%" />
+    <router-link to="/about" exact>
+      <v-img src="@/assets/LOGOAE_WEB.png" alt="" width="80%" />
     </router-link>
       <v-list shaped>
         <v-subheader>Menu</v-subheader>

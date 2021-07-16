@@ -4,18 +4,23 @@
             <v-card style="width:300px;">
                 <v-img src="@/assets/login.png" height="160px;"/>
                 <v-card-text>
-                    <v-form>
+                    <v-card-title primary-title>
+                        Login
+                    </v-card-title>
+                    <v-form @submit.prevent="submit">
                         <!-- Username -->
                         <v-text-field
                             name="username"
                             label="Username"
                             id="username"
+                            v-model="account.username"
                         />
                         <!-- Password -->
                         <v-text-field
                             name="password"
                             label="Password"
                             id="password"
+                            v-model="account.password"
                             :append-icon="isShowPassword ? 'visibility' : 'visibility_off'"
                             @click:append="isShowPassword = !isShowPassword"
                             :type="isShowPassword ? 'text' : 'password'"
@@ -24,7 +29,7 @@
 
                         <v-row class="justify-space-between px-3 pt-3">
                             <v-btn text @click="$router.push('/register')">Register</v-btn>
-                            <v-btn color="success">Login</v-btn>   
+                            <v-btn @click="submit" color="success">Login</v-btn>   
                         </v-row>
                         
                     </v-form>
@@ -40,8 +45,26 @@
 export default { 
     data() {
         return {
-            isShowPassword:false
+            isShowPassword:false ,
+            account:{
+                username:"",
+                password:""
+            },
         }
+    },
+    methods: {
+        submit() {
+            this.$router.push("/stock")
+            this.$store.dispatch({
+                type:"doLogin", 
+                username: this.account.username,
+                password: this.account.password
+            })
+        }
+    },
+    mounted() {
+        // this.$store.state.username = '1'
+        // console.log(this.$store.getters.username )
     },
 }
 </script>

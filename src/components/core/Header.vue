@@ -12,7 +12,7 @@
 
       <v-spacer></v-spacer>
 
-      <span>Username</span>
+      <span>{{ $store.getters["username"] }}</span>
       <v-btn icon @click="onClickLogOff">
         <v-icon>mdi-export</v-icon>
       </v-btn>
@@ -27,6 +27,12 @@ export default {
         version(){
             return "1.0"
         }
+    },
+    methods: {
+      onClickLogOff() {
+        this.$router.push('/')
+        this.$store.dispatch('doLogout')
+      }
     }
 }
 </script>
