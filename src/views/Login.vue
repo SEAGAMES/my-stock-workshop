@@ -53,13 +53,13 @@ export default {
         }
     },
     methods: {
-        submit() {
-            this.$router.push("/stock")
-            this.$store.dispatch({
+        async submit() {
+            await this.$store.dispatch({
                 type:"doLogin", 
                 username: this.account.username,
-                password: this.account.password
+                password: this.account.password,
             })
+            await this.$router.push("/stock")
         }
     },
     mounted() {

@@ -30,7 +30,6 @@ export default {
     },
     methods: {
       onClickLogOff() {
-        this.$router.push('/')
         this.$store.dispatch('doLogout')
       }
     }

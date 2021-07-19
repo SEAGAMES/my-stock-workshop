@@ -5,14 +5,14 @@
     </router-link>
       <v-list shaped>
         <v-subheader>Menu</v-subheader>
-        <v-list-item-group v-momdel="selectedMenu" mandatory color="primary">
+        <v-list-item-group v-model="selectedMenu" mandatory color="primary">
           <v-list-item v-for="([icon, title, route], i) in menus" :key="i" link @click="onClickMenu(route)">
             <v-list-item-icon>
               <v-icon>{{ icon }}</v-icon>
             </v-list-item-icon>
 
             <v-list-item-content>
-              <v-list-tile-title>{{ title }}</v-list-tile-title>
+              <v-list-item-title>{{ title }}</v-list-item-title>
             </v-list-item-content>
 
           </v-list-item> 
@@ -23,6 +23,7 @@
 
 <script>
   export default {
+    name : "test" ,
     data () {
       return {
         selectMenu:0 ,
@@ -30,7 +31,8 @@
            ['mdi-apps-box' , 'Stock' , '/stock'] ,
            ['mdi-chart-line-stacked' , 'Report' , '/report'],
            ['mdi-information' , 'About' , '/about'] ,
-         ]
+         ],
+         title : "test2" 
       }
     },
     methods: {

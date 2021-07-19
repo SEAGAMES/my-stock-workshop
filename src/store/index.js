@@ -40,6 +40,7 @@ export default new Vuex.Store({
       }
     },
     doLogout({ commit }) {
+      api.logoff()
       commit("SET_LOGGED_OUT");
       commit("SET_USERNAME", "");
     },

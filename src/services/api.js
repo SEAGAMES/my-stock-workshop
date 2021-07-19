@@ -1,4 +1,5 @@
 import { server } from "@/services/constants"
+import router from "@/router"
 
 
 const isLoggedIn = () => {
@@ -18,11 +19,17 @@ const login = values => {
     }*/
 
     localStorage.setItem(server.USERNAME, values.username) ;
-    localStorage.setITem(server.TOKEN_KEY, "1234") ;
+    localStorage.setItem(server.TOKEN_KEY, "1234") ;
     return true 
 }
 
+const logoff = () => {
+    localStorage.removeItem(server.TOKEN_KEY) 
+    router.push("/login")
+}
+
 export default {
-    isLoggedIn ,
-    login
+    isLoggedIn,
+    login,
+    logoff
 }
