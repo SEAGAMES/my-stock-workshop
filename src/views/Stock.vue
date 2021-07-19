@@ -31,7 +31,7 @@ export default {
     },
     mounted() {
         console.log("Stock component is run"),
-        Axios.get("http://localhost:8081/api/v2/product").then(result=>{
+        Axios.get("http://localhost:8081/api/v2/product").then((result)=>{
             console.log(JSON.stringify(result.data))
         })
     }
