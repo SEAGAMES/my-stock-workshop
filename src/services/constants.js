@@ -5,7 +5,7 @@ export const UPLOAD_PHOTO_FAIL_MESSAGE = "An error has accurred. The photo was u
 export const NOT_CONNECT_NETWORK = "NOT_CONNECT_NETWORK"
 
 export const apiUrl = "http://localhost:8081/api/v2"
-export const immageUrl = "http://localhost:8081/images"
+export const imageUrl = "http://localhost:8081/images"
 
 export const server = {
     LOGIN_URL : 'login' ,
