@@ -32,12 +32,12 @@ const routes = [
   },
   {
     path: '/stock-create',
-    name: 'stockcr-eate',
+    name: 'stock-create',
     component: StockCreate
   },
   {
-    path: '/stock-edit/:id ',
-    name: 'stock-edit',
+    path: "/stock-edit/:id",
+    name: "stock-edit",
     component: StockEdit
   },
   {

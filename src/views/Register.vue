@@ -37,7 +37,7 @@
 
                         <v-row class="justify-space-between px-3 pt-3">
                             <v-btn text @submit="$router.back()">Cancel</v-btn>
-                            <v-btn type="submit" color="success">Confirm</v-btn>   
+                            <v-btn  color="success" @click="submit()">Confirm</v-btn>   
                         </v-row>
                         
                     </v-form>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import api from '../services/api'
 export default { 
     data() {
         return {
@@ -62,9 +63,11 @@ export default {
             passwordRules:[v1=>!!v1 || "Password is required", v2=>!!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(v2) || "Minimum eight characters, at least one letter and one number:"]
         }
     },
-    methods() {
-        alert(JSON.stringify(this.account))
-    }
+    methods: {
+        async submit() {
+           await api.register(this.account)
+        }
+  },
 }
 </script>
 

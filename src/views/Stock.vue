@@ -39,9 +39,38 @@
       </v-col>
     </v-row>
 
+    
+
     <!-- Table section -->
     <v-card>
-      <v-data-table :headers="headers" :items="mDataArray">
+      <v-data-table :search="search" :headers="headers" :items="mDataArray">
+
+        <!-- table top section -->
+        <template v-slot:top>
+          <v-toolbar flat color="white">
+            <v-toolbar-title>Stock</v-toolbar-title>
+            <v-divider class="mx-4" inset vertical></v-divider>
+            <v-text-field
+              v-model="search"
+              append-icon="search"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+            <v-spacer></v-spacer>
+            <v-btn
+              @click="$router.push('/stock-create')"
+              color="primary"
+              dark
+              class="mb-2"
+            >
+              <v-icon left>add</v-icon>
+              <span>New Product</span>
+            </v-btn>
+          </v-toolbar>
+        </template>
+
+        <!-- table tr section -->
         <template v-slot:item="{ item }">
           <tr>
             <td>{{ item.id }}</td>
@@ -59,7 +88,7 @@
             <td>{{ item.stock | number("0,0") }} pcs.</td>
             <td>xxx</td>
             <td>
-              <v-icon class="ma-2" @click="editItem(item)"> edit </v-icon>
+              <v-icon class="mr-2" @click="editItem(item)"> edit </v-icon>
               <span class="mr-1"></span>
               <v-icon @click="deleteIte(item)"> delete </v-icon>
             </td>
@@ -103,6 +132,11 @@ export default {
         this.mDataArray = result.data;
         //console.log(this.mDataArray);
       });
+  },
+  methods: {
+    editItem(item) {
+      this.$router.push(`/stock-edit/${item.id}`);
+    },
   },
 };
 </script>

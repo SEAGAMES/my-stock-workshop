@@ -1,7 +1,7 @@
 /////////////// Localization Begin ////////////////
 export const NETWORK_CONNECT_MESSAGE = "Cannot connect to server, please try agian." ;
 export const NETWORK_TIMEOUR_MESSAGE = "A network timeout gas accurred, Please try again."
-export const UPLOAD_PHOTO_FAIL_MESSAGE = "An error has accurred. The photo was unable to"
+export const UPLOAD_PHOTO_FAIL_MESSAGE = "An error has accurred. The photo was unable to ipload."
 export const NOT_CONNECT_NETWORK = "NOT_CONNECT_NETWORK"
 
 export const apiUrl = "http://localhost:8081/api/v2"
