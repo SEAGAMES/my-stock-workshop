@@ -15,7 +15,7 @@ export default new Vuex.Store({
       return state.isLogged;
     },
     username(state) {
-      return "คุณ " + state.username;
+      return state.username;
     }
   },
   mutations: {
@@ -33,7 +33,6 @@ export default new Vuex.Store({
     async doLogin({ commit, dispatch }, { username  , password }) {
       let result = await api.login({ username , password }) ; 
       console.log(result)
-      console.log(555)
       if(result == true) {
         console.log('เข้า IF')
         commit("SET_LOGGED_IN") ;

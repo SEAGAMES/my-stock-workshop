@@ -52,7 +52,7 @@ import api from "@/services/api";
 export default {
   mounted() {
     if (api.isLoggedIn()) {
-      this.$router.push("/login");
+      this.$router.push("/stock");
     }
   },
   data() {
